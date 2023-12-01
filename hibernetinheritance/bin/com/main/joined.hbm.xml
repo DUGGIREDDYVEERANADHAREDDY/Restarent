@@ -1,0 +1,22 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="com.main.Employee" table="employee">
+<id name="empid" type="int">
+<generator class="increment"/>
+</id>
+<property name="empname" type = "string"></property>
+<joined-subclass name="com.main.Perminentemployee">
+<key column="empid"></key>
+<property name="salary" type="double"></property>
+<property name="bonou" type="int"></property>
+</joined-subclass>
+<joined-subclass name="com.main.Contractempoyee">
+<key column="empid"/>
+<property name="count" type="int"></property>
+<property name="duration" type="int"></property>
+</joined-subclass>
+</class>
+</hibernate-mapping>
